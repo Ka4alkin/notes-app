@@ -1,3 +1,4 @@
+import img from './assets/images/delete.png'
 export class Note {
 
     static createNotes(data) {
@@ -13,7 +14,7 @@ export class Note {
             note.innerHTML += ` 
                 <div class="notes__item__name">
                     
-                    <img class="notes__item__name__ico" src="" alt="">
+                    <img class="notes__item__name__ico" src="${img}" alt="">
                     ${item.name}
                 </div>
                 <div class="notes__item__date-created">${item.created}</div>
