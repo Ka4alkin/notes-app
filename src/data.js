@@ -1,4 +1,4 @@
-export const data = [
+  let data = [
     {
         name: 'Shop List',
         created: 'April 20 2021',

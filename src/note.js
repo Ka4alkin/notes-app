@@ -4,6 +4,12 @@ import deleteImg from './assets/images/delete.png'
 import archiveImg from './assets/images/archive.png'
 export class Note {
 
+    static onUpdateNoteList(data) {
+        const notes = document.querySelector('.notes')
+        notes.insertBefore(Note.createNotes(data), document.querySelector('.notes__button__wrap'))
+        return null
+    }
+
     static createNotes(data) {
 
         const notesWrap = document.createElement('div')

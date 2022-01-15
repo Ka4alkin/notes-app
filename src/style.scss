@@ -1,19 +1,36 @@
 body {
   background: #b7b7b7;
+  font-family: cursive;
 }
 
-.logo {
-  width: 400px;
-  height: 400px;
-  background-size: cover;
-  background-image: url("./assets/images/delete.png");
-  background-repeat: no-repeat;
+.container{
+  max-width: 900px;
+  margin: auto;
+}
+
+.show{
+  display: block !important;
+}
+
+$gridTemp1 : repeat(5, 1fr) 150px;
+$shadow1: 0px 0px 10px 1px #303030;
+
+.button{
+  background: #6f6f6f;
+  color: #fff;
+  padding:5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input{
+  border-radius: 5px;
 }
 
 %btns {
-  background: #d075a3c7;
+  //background: #d075a3c7;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-end !important;
   align-items: center;
 }
 
@@ -24,39 +41,54 @@ body {
 }
 
 .notes {
+  margin: 40px 0px;
   &__header {
     display: grid;
-    background: #707575;
-    grid-template-columns:  repeat(6, 1fr);
+    background: #6f6f6f;
+    grid-template-columns:  $gridTemp1;
+    border-radius: 5px;
+    box-shadow: $shadow1;
+    border: 2px solid #535353;
+
+    div{
+      display: flex;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      color: #fefefe;
+      margin: 5px;
+      padding: 5px;
+      font-size: 24px;
+      font-weight: bold;
+
+    }
 
     &__btns {
       @extend %btns;
+      //filter: invert(1);
 
       img {
         @extend %btnsImg;
       }
     }
-
-    div {
-      color: #fff;
-      border: dashed 2px black;
-      margin: 5px;
-      padding: 5px;
-    }
   }
 
   &__wrap {
-    background: #9da4a4;
+    //background: #9da4a4;
   }
 
   &__item {
     display: grid;
     //background: #9da4a4;
-    grid-template-columns:  repeat(6, 1fr);
+    grid-template-columns:  $gridTemp1;
+    margin: 10px 0px;
+    background: #ffffff;
+    border-radius: 5px;
+    box-shadow: $shadow1;
 
     div {
       color: #000;
-      border: dashed 2px black;
+      //border: dashed 2px black;
       margin: 5px;
       padding: 5px;
     }
@@ -84,6 +116,7 @@ body {
 
       img {
         @extend %btnsImg;
+        cursor: pointer;
       }
 
       &__archive {
@@ -94,6 +127,17 @@ body {
       }
     }
 
+  }
 
+  &__button__wrap{
+    display: flex;
+    justify-content: flex-end;
+  }
+  &__button__create{
+
+  }
+
+  &__add__form{
+   display: none;
   }
 }
