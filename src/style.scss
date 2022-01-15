@@ -1,3 +1,59 @@
-body{
-  background: fuchsia;
+body {
+  background: #b7b7b7;
+}
+
+.notes {
+  &__header {
+    display: grid;
+    background: #707575;
+    grid-template-columns:  repeat(6, 1fr);
+
+
+    div {
+      color: #fff;
+      border: dashed 2px black;
+      margin: 5px;
+      padding: 5px;
+    }
+  }
+
+  &__wrap{
+    background: #9da4a4;
+  }
+  &__item {
+    display: grid;
+    //background: #9da4a4;
+    grid-template-columns:  repeat(6, 1fr);
+
+    div {
+      color: #000;
+      border: dashed 2px black;
+      margin: 5px;
+      padding: 5px;
+    }
+
+    &__ico {
+    }
+
+    &_name {
+    }
+
+    &__date-created {
+    }
+
+    &__category {
+    }
+
+    &__content {
+    }
+
+    &__dates {
+    }
+
+    &__archive {
+    }
+
+    &__delete {
+    }
+  }
 }
