@@ -8,6 +8,11 @@ module.exports = {
         filename: 'bundle.[chunkhash].js',
         path: path.resolve(__dirname, 'public')
     },
+    resolve: {
+        alias: {
+            images: path.resolve(__dirname, 'src/assets/images/'),
+        },
+    },
     devServer:{
         port: 3000
     },
@@ -28,9 +33,11 @@ module.exports = {
                 ],
             },
             {
-                test: /\.(png|jpg|svg|gif)$/,
-                // use: ['file-loader']
-                type: 'asset/resource'
+                test: /\.(gif|png|jpg|jpeg|svg)?$/,
+                loader: 'file-loader',
+                options: {
+                    name: 'assets/images/[name].[ext]',
+                },
             }
         ],
     },
