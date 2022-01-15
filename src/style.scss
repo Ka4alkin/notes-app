@@ -6,6 +6,7 @@ body {
   width: 400px;
   height: 400px;
   background-size: cover;
+  background-image: url("./assets/images/delete.png");
 }
 
 %btns {
@@ -13,6 +14,12 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+}
+
+%btnsImg {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
 }
 
 .notes {
@@ -23,6 +30,10 @@ body {
 
     &__btns {
       @extend %btns;
+
+      img {
+        @extend %btnsImg;
+      }
     }
 
     div {
@@ -68,8 +79,11 @@ body {
     }
 
     &__btn {
-
       @extend %btns;
+
+      img {
+        @extend %btnsImg;
+      }
 
       &__archive {
 

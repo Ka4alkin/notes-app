@@ -1,4 +1,7 @@
 // import img from './assets/images/delete.png'
+import editImg from './assets/images/edit.gif'
+import deleteImg from './assets/images/delete.png'
+import archiveImg from './assets/images/archive.png'
 export class Note {
 
     static createNotes(data) {
@@ -21,9 +24,9 @@ export class Note {
                 <div class="notes__item__content">${item.content}</div>
                 <div class="notes__item__dates">${item.dates}</div>
                 <div class="notes__item__btn">
-                 <div class="notes__item__btn__edit">e</div>
-                 <div class="notes__item__btn__archive">a</div>
-                <div class="notes__item__btn__delete">d</div>
+                    <img src="${editImg}" alt="" class="notes__item__btn__edit">
+                    <img src="${archiveImg}" alt="" class="notes__item__btn__archive">
+                    <img src="${deleteImg}" alt="" class="notes__item__btn__delete"> 
             </div>  
         `
             notesWrap.append(note)
