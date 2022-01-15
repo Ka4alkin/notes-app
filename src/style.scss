@@ -6,8 +6,13 @@ body {
   width: 400px;
   height: 400px;
   background-size: cover;
-  //background-image: url("http://localhost:3000/49cac63ced275352be03b779816c0469.png");
-  background-image: url("./assets/images/delete.png");
+}
+
+%btns {
+  background: #d075a3c7;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .notes {
@@ -15,6 +20,10 @@ body {
     display: grid;
     background: #707575;
     grid-template-columns:  repeat(6, 1fr);
+
+    &__btns {
+      @extend %btns;
+    }
 
     div {
       color: #fff;
@@ -40,10 +49,10 @@ body {
       padding: 5px;
     }
 
-    &__ico {
-    }
 
     &_name {
+      &__ico {
+      }
     }
 
     &__date-created {
@@ -58,10 +67,18 @@ body {
     &__dates {
     }
 
-    &__archive {
+    &__btn {
+
+      @extend %btns;
+
+      &__archive {
+
+      }
+
+      &__delete {
+      }
     }
 
-    &__delete {
-    }
+
   }
 }

@@ -1,17 +1,17 @@
 export const data = [
     {
         name: 'Shop List',
-        created: 'icoSrc',
-        category: 'icoSrc',
-        content: 'Howemouth',
-        dates: 'Synchronised bottom-line interface',
+        created: 'April 20 2021',
+        category: 'task',
+        content: 'Tomatoes, bread Tomatoes, breadTomatoes, breadTomatoes, bread',
+        dates: '-dates-',
     },
     {
         name: 'the Theory of a something',
-        created: 'icoSrc',
-        category: 'icoSrc',
-        content: 'icoSrc',
-        dates: 'voluptates excepturi deleniti',
+        created: 'January 10 2020',
+        category: 'question',
+        content: 'The evolution of earth',
+        dates: '-dates-',
     },
     /*{
         name: 'new Feature',
