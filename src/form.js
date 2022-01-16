@@ -34,7 +34,7 @@ export class Form {
             const name = item.getAttribute('name')
             newNote[name] = item.value
         })
-        newNote['data'] = new Date().toLocaleDateString()
+        newNote['created'] = new Date().toLocaleDateString()
 
         return newNote
     }
