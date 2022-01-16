@@ -17,6 +17,7 @@ export class Note {
 
         data.forEach((item, i) => {
 
+
             const note = document.createElement('div')
             note.classList.add('notes__item')
 
@@ -28,7 +29,7 @@ export class Note {
                 <div class="notes__item__date-created">${item.created}</div>
                 <div class="notes__item__category">${item.category}</div>
                 <div class="notes__item__content">${item.content}</div>
-                <div class="notes__item__dates">${item.dates}</div>
+                <div class="notes__item__dates">-datas-</div>
                 <div class="notes__item__btn">
                     <img src="${editImg}" alt="" class="notes__item__btn__edit">
                     <img src="${archiveImg}" alt="" class="notes__item__btn__archive">
