@@ -26,6 +26,8 @@ archiveBtn.addEventListener('click', (e) => {
     e.target.innerHTML = archive.classList.contains('show') ? 'Close archived notes ' : 'Open archived notes'
 })
 
+Note.editForm.addEventListener('submit', Form.editFormHandler());
+
 form.addEventListener('submit',Form.formHandler)
 
 

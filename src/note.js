@@ -3,6 +3,7 @@ import editImg from './assets/images/edit.gif'
 import deleteImg from './assets/images/delete.png'
 import archiveImg from './assets/images/archive.png'
 import {Service} from "./service";
+import {Form} from "./form";
 
 export class Note {
 
@@ -11,6 +12,10 @@ export class Note {
     static notesArchive = document.querySelector('.notes__archive')
     static notesWrap = document.querySelector('.notes__wrap')
     static editForm = document.querySelector('.notes__edit__form')
+    static editFormInputs = document.querySelectorAll('.notes__edit__form input')
+    static activeEditKey
+
+
 
     static onUpdateNoteList(data) {
 
@@ -29,11 +34,11 @@ export class Note {
 
         data.forEach((item, i) => {
 
-                const note = document.createElement('div')
-                note.classList.add('notes__item')
-                note.setAttribute('key', i)
+            const note = document.createElement('div')
+            note.classList.add('notes__item')
+            note.setAttribute('key', i)
 
-                note.innerHTML += ` 
+            note.innerHTML += ` 
                 <div class="notes__item__name"> 
                     <!--<img class="notes__item__name__ico" src="" alt="">-->
                     ${item.name}
@@ -41,16 +46,16 @@ export class Note {
                 <div class="notes__item__date-created">${item.created}</div>
                 <div class="notes__item__category">${item.category}</div>
                 <div class="notes__item__content">${item.content}</div>
-                <div class="notes__item__dates">-datas-</div>
+                <div class="notes__item__dates">${item.dates}</div>
                 <div class="notes__item__btn"> 
                     <img key="${i}" src="${editImg}" alt="" class="notes__item__btn__edit">
                     <img key="${i}" src="${archiveImg}" alt="" class="notes__item__btn__archive">
                     <img key="${i}" src="${deleteImg}" alt="" class="notes__item__btn__delete"> 
             </div>  
         `
-            if (item.archive !== true){
+            if (item.archive !== true) {
                 Note.notesWrap.append(note)
-            }  else {
+            } else {
                 Note.notesArchive.append(note)
 
             }
@@ -62,7 +67,7 @@ export class Note {
 
         const notes = document.querySelectorAll('.notes__item')
 
-        notes.forEach(item=> {
+        notes.forEach(item => {
             if (item) item.remove()
         })
 
@@ -88,10 +93,20 @@ export class Note {
 
 
     static onEdit(e) {
-        const itemKey = e.target.getAttribute('key')
-        console.log(e.target)
 
+        const itemKey = e.target.getAttribute('key')
+        const spanNum = document.querySelector('.notes__edit__form h5 span')
+        spanNum.innerHTML = Service.getDate()[itemKey].name
         Note.editForm.classList.toggle('show')
+
+        // let valid = itemKey - 1
+        //
+        //
+        // console.log('valid',valid)
+        // console.log('key',itemKey)
+
+        Note.activeEditKey = itemKey
+
     }
 
     static onArchive(e) {
@@ -101,7 +116,7 @@ export class Note {
 
         const data = Service.getDate()
 
-        if( data[itemKey].archive === false){
+        if (data[itemKey].archive === false) {
             data[itemKey].archive = true
         } else {
             data[itemKey].archive = false
@@ -115,5 +130,7 @@ export class Note {
 
 
 }
+
+
 
 
