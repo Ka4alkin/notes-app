@@ -2,7 +2,6 @@
 import editImg from './assets/images/edit.gif'
 import deleteImg from './assets/images/delete.png'
 import archiveImg from './assets/images/archive.png'
-import data from "./data.json";
 
 export class Note {
 
@@ -75,10 +74,7 @@ export class Note {
         deleteBtns.forEach(btn => btn.addEventListener('click', (e) => {
             const itemKey = e.target.getAttribute('key')
             const data = JSON.parse(localStorage.getItem('notes'))
-            data.forEach((item, i) => {
-                console.log('onDeleteNote')
-                data.splice(itemKey, 1);
-            })
+            data.splice(itemKey, 1)
             localStorage.setItem('notes',JSON.stringify(data))
             Note.onUpdateNoteList(JSON.parse(localStorage.getItem('notes')))
         }))
