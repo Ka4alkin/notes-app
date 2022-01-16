@@ -9,10 +9,11 @@ export class Note {
     static notes = document.querySelector('.notes')
     static notesButtonsWrap = document.querySelector('.notes__button__wrap')
     static notesArchive = document.querySelector('.notes__archive')
+    static notesWrap = document.querySelector('.notes__wrap')
 
     static onUpdateNoteList(data) {
 
-        this.notes.insertBefore(Note.createNotes(data), this.notesButtonsWrap)
+        Note.createNotes(data)
         Note.onBtn()
 
         return null
@@ -22,8 +23,8 @@ export class Note {
 
         this.clearNotes()
 
-        const notesWrap = document.createElement('div')
-        notesWrap.classList.add('notes__wrap')
+        // const notesWrap = document.createElement('div')
+        // notesWrap.classList.add('notes__wrap')
 
         data.forEach((item, i) => {
 
@@ -47,24 +48,27 @@ export class Note {
             </div>  
         `
             if (item.archive !== true){
-                notesWrap.append(note)
+                Note.notesWrap.append(note)
             }  else {
                 Note.notesArchive.append(note)
 
             }
         })
 
-        return notesWrap
+        // return notesWrap
     }
 
 
     static clearNotes() {
 
-        const notesWrap = document.querySelector('.notes__wrap')
-        const archiveWrap = document.querySelector('.notes__archive .notes__wrap')
 
-        if (archiveWrap) archiveWrap.remove()
-        if (notesWrap) notesWrap.remove()
+        const notes = document.querySelectorAll('.notes__item')
+
+        notes.forEach(item=> {
+            if (item) item.remove()
+        })
+
+
 
 
     }
