@@ -37,6 +37,7 @@ export class Form {
             newNote[name] = item.value
         })
         newNote['created'] = new Date().toLocaleDateString()
+        newNote['archive'] = false
 
         return newNote
     }

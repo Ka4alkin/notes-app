@@ -54,22 +54,16 @@ export class Note {
 
             }
         })
-
-        // return notesWrap
     }
 
 
     static clearNotes() {
-
 
         const notes = document.querySelectorAll('.notes__item')
 
         notes.forEach(item=> {
             if (item) item.remove()
         })
-
-
-
 
     }
 
@@ -105,17 +99,17 @@ export class Note {
 
 
         const data = Service.getDate()
+
         if( data[itemKey].archive === false){
             data[itemKey].archive = true
         } else {
             data[itemKey].archive = false
         }
 
-
         //update notes
-        // Service.updateDate(data)
-        // Note.notes.insertBefore(Note.createNotes(Service.getDate()), Note.notesButtonsWrap)
-        // Note.onBtn()
+        Service.updateDate(data)
+        Note.createNotes(data)
+        Note.onBtn()
 
     }
 
