@@ -16,6 +16,7 @@ $gridTemp1 : repeat(5, 1fr) 150px;
 $shadow1: 0px 0px 10px 1px #303030;
 
 .button{
+  margin-left: 20px;
   background: #6f6f6f;
   color: #fff;
   padding:5px 10px;
@@ -140,5 +141,9 @@ input{
 
   &__add__form{
    display: none;
+  }
+
+  &__archive{
+    display: none;
   }
 }

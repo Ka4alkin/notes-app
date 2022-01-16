@@ -2,14 +2,19 @@
 import editImg from './assets/images/edit.gif'
 import deleteImg from './assets/images/delete.png'
 import archiveImg from './assets/images/archive.png'
+import {Service} from "./service";
 
 export class Note {
 
+    static notes = document.querySelector('.notes')
+    static notesButtonsWrap = document.querySelector('.notes__button__wrap')
+    static notesArchive = document.querySelector('.notes__archive')
 
     static onUpdateNoteList(data) {
-        const notes = document.querySelector('.notes')
-        notes.insertBefore(Note.createNotes(data), document.querySelector('.notes__button__wrap'))
-        Note.onDeleteNote()
+
+        this.notes.insertBefore(Note.createNotes(data), this.notesButtonsWrap)
+        Note.onBtn()
+
         return null
     }
 
@@ -17,17 +22,16 @@ export class Note {
 
         this.clearNotes()
 
-
         const notesWrap = document.createElement('div')
         notesWrap.classList.add('notes__wrap')
 
         data.forEach((item, i) => {
 
-            const note = document.createElement('div')
-            note.classList.add('notes__item')
-            note.setAttribute('key', i)
+                const note = document.createElement('div')
+                note.classList.add('notes__item')
+                note.setAttribute('key', i)
 
-            note.innerHTML += ` 
+                note.innerHTML += ` 
                 <div class="notes__item__name"> 
                     <!--<img class="notes__item__name__ico" src="" alt="">-->
                     ${item.name}
@@ -42,8 +46,12 @@ export class Note {
                     <img key="${i}" src="${deleteImg}" alt="" class="notes__item__btn__delete"> 
             </div>  
         `
-            notesWrap.append(note)
+            if (item.archive !== true){
+                notesWrap.append(note)
+            }  else {
+                Note.notesArchive.append(note)
 
+            }
         })
 
         return notesWrap
@@ -52,33 +60,68 @@ export class Note {
 
     static clearNotes() {
 
-        const notes = document.querySelector('.notes')
-        const items = document.querySelectorAll('.notes__item')
         const notesWrap = document.querySelector('.notes__wrap')
+        const archiveWrap = document.querySelector('.notes__archive .notes__wrap')
 
-        if (notesWrap && items) {
-            items.forEach((item, i) => {
-                notesWrap.removeChild(item)
-            })
-            notes.removeChild(notesWrap)
-        }
+        if (archiveWrap) archiveWrap.remove()
+        if (notesWrap) notesWrap.remove()
+
+
+    }
+
+    static onBtn() {
+        const archiveBtns = document.querySelectorAll('.notes__item__btn__archive')
+        const deleteBtns = document.querySelectorAll('.notes__item__btn__delete')
+        const editBtns = document.querySelectorAll('.notes__item__btn__edit')
+
+        archiveBtns.forEach(btn => btn.addEventListener('click', this.onArchive))
+        deleteBtns.forEach(btn => btn.addEventListener('click', this.onDelete))
+        editBtns.forEach(btn => btn.addEventListener('click', this.onEdit))
+    }
+
+    static onDelete(e) {
+        const itemKey = e.target.getAttribute('key')
+        const data = Service.getDate()
+        data.splice(itemKey, 1)
+        Service.updateDate(data)
+        Note.onUpdateNoteList(Service.getDate())
     }
 
 
-    static onDeleteNote() {
+    static onEdit(e) {
+        const itemKey = e.target.getAttribute('key')
+        console.log(e.target)
+        // console.log(this)
+    }
+
+    static onArchive(e) {
+
+        const itemKey = e.target.getAttribute('key')
+        console.log('onArchive')
+
+
+        const data = Service.getDate()
+        if( data[itemKey].archive === false){
+            data[itemKey].archive = true
+        } else {
+            data[itemKey].archive = false
+        }
+
+
+        //update notes
+        // Service.updateDate(data)
+        // Note.notes.insertBefore(Note.createNotes(Service.getDate()), Note.notesButtonsWrap)
+        // Note.onBtn()
+
+    }
+
+    static onDeleteNote(e) {
+
 
         console.log('onDeleteNote')
-
-        const deleteBtns = document.querySelectorAll('.notes__item__btn__delete')
-
-        deleteBtns.forEach(btn => btn.addEventListener('click', (e) => {
-            const itemKey = e.target.getAttribute('key')
-            const data = JSON.parse(localStorage.getItem('notes'))
-            data.splice(itemKey, 1)
-            localStorage.setItem('notes',JSON.stringify(data))
-            Note.onUpdateNoteList(JSON.parse(localStorage.getItem('notes')))
-        }))
     }
 
+
 }
+
 

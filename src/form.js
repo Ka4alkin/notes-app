@@ -1,6 +1,7 @@
 
 import {Note} from "./note";
 import data from "./data.json";
+import {Service} from "./service";
 
 export class Form {
 
@@ -11,9 +12,9 @@ export class Form {
     static formHandler(e) {
         e.preventDefault()
         console.log('onInputSubmit')
-        this.newDate =  Form.addNote(Form.getInputsValues(), JSON.parse(localStorage.getItem('notes')))
-        localStorage.setItem('notes',JSON.stringify(this.newDate))
-        Note.onUpdateNoteList(JSON.parse(localStorage.getItem('notes')))
+        this.newDate =  Form.addNote(Form.getInputsValues(), Service.getDate())
+        Service.updateDate(this.newDate)
+        Note.onUpdateNoteList(Service.getDate())
 
     }
 

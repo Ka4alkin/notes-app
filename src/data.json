@@ -4,13 +4,15 @@
     "created": "April 20 2021",
     "category": "task",
     "content": "Tomatoes, bread Tomatoes, breadTomatoes, breadTomatoes, bread",
-    "dates": "-dates-"
+    "dates": "-dates-",
+    "archive": false
   },
   {
     "name": "the Theory of a something",
     "created": "January 10 2020",
     "category": "question",
     "content": "The evolution of earth",
-    "dates": "-dates-"
+    "dates": "-dates-",
+    "archive": false
   }
 ]
