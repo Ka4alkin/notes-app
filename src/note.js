@@ -10,6 +10,7 @@ export class Note {
     static notesButtonsWrap = document.querySelector('.notes__button__wrap')
     static notesArchive = document.querySelector('.notes__archive')
     static notesWrap = document.querySelector('.notes__wrap')
+    static editForm = document.querySelector('.notes__edit__form')
 
     static onUpdateNoteList(data) {
 
@@ -89,14 +90,14 @@ export class Note {
     static onEdit(e) {
         const itemKey = e.target.getAttribute('key')
         console.log(e.target)
-        // console.log(this)
+
+        Note.editForm.classList.toggle('show')
     }
 
     static onArchive(e) {
 
         const itemKey = e.target.getAttribute('key')
         console.log('onArchive')
-
 
         const data = Service.getDate()
 
@@ -110,13 +111,6 @@ export class Note {
         Service.updateDate(data)
         Note.createNotes(data)
         Note.onBtn()
-
-    }
-
-    static onDeleteNote(e) {
-
-
-        console.log('onDeleteNote')
     }
 
 

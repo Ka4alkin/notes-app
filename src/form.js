@@ -6,7 +6,7 @@ import {Service} from "./service";
 export class Form {
 
     static inputs = document.querySelectorAll('.notes__add__form input')
-
+    static editForm = document.querySelector('.notes__edit__form')
     static newDate = null
 
     static formHandler(e) {
@@ -47,6 +47,10 @@ export class Form {
         processedData.push(newNote)
 
         return processedData
+    }
+
+    static editFormHandler(key){
+
     }
 
 

@@ -5,55 +5,53 @@
     <title>Title</title>
 </head>
 <body>
-    <div class="container">
+<div class="container">
 
-        <div class="notes">
-            <div class="notes__header">
-                <div class="notes__header__item">Name</div>
-                <div class="notes__header__item">Created</div>
-                <div class="notes__header__item">Category</div>
-                <div class="notes__header__item">Content</div>
-                <div class="notes__header__item">Dates</div>
-                <div class="notes__header__btns">
-                    <img src="./assets/images/delete.png" alt="">
-                    <img src="./assets/images/archive.png" alt="">
-                </div>
-
-            </div>
-            <div class="notes__wrap">
-
-            </div>
-            <div class="notes__button__wrap">
-                <button class="button notes__button__create">Create new Note</button>
-                <button class="button notes__button__archive">Open archived notes</button>
+    <div class="notes">
+        <div class="notes__header">
+            <div class="notes__header__item">Name</div>
+            <div class="notes__header__item">Created</div>
+            <div class="notes__header__item">Category</div>
+            <div class="notes__header__item">Content</div>
+            <div class="notes__header__item">Dates</div>
+            <div class="notes__header__btns">
+                <img src="./assets/images/delete.png" alt="">
+                <img src="./assets/images/archive.png" alt="">
             </div>
 
-            <form id="editForm" class="notes__add__form show" action="">
-                <h3>Add new note</h3>
-                <input name="name" placeholder="Name" type="text">
-                <input name="category" placeholder="Category" type="text">
-                <input name="content" placeholder="Content" type="text">
-                <button class="button" type="submit">Add</button>
-            </form>
+        </div>
+        <div class="notes__wrap">
 
-            <form class="notes__edit__form show" action="">
-                <h3>Edit note</h3>
-                <h5>Now you are editing note: <span>num</span></h5>
-                <input name="name" placeholder="Name" type="text">
-                <input name="category" placeholder="Category" type="text">
-                <input name="content" placeholder="Content" type="text">
-                <button class="button" type="submit">Add</button>
-            </form>
-
-            <div class="notes__archive show">
-                <h3>Archived notes</h3>
-                <!--items-->
-            </div>
+        </div>
+        <div class="notes__button__wrap">
+            <button class="button notes__button__create">Create new Note</button>
+            <button class="button notes__button__archive">Open archived notes</button>
         </div>
 
+        <form id="editForm" class="notes__add__form" action="">
+            <h3>Add new note</h3>
+            <input name="name" placeholder="Name" type="text">
+            <input name="category" placeholder="Category" type="text">
+            <input name="content" placeholder="Content" type="text">
+            <button class="button" type="submit">Add</button>
+        </form>
 
+        <form class="notes__edit__form show" action="">
+            <h3>Edit note</h3>
+            <h5>Which note are you want to edit: <input name="number" placeholder="enter note number" type="text"></h5>
+            <input name="name" placeholder="Name" type="text">
+            <input name="category" placeholder="Category" type="text">
+            <input name="content" placeholder="Content" type="text">
+            <button class="button" type="submit">Edit</button>
+        </form>
 
-
+        <div class="notes__archive">
+            <h3>Archived notes</h3>
+            <!--items-->
+        </div>
     </div>
+
+
+</div>
 </body>
 </html>
