@@ -1,4 +1,4 @@
-  let data = [
+  let oldData = [
     {
         name: 'Shop List',
         created: 'April 20 2021',

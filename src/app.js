@@ -3,27 +3,15 @@ import data from './data.json'
 import {Note} from "./note";
 import {Form} from "./form";
 
-export const DATA = updateDate(data)
+localStorage.setItem('notes',JSON.stringify(data))
 
-export function updateDate(data,newData){
-    console.log(data)
-    console.log(newData)
-    console.log('------')
-    if (newData === 'undefined') return data
-    if (newData !== 'undefined') return data
+export const DATA = JSON.parse(localStorage.getItem('notes'))
 
-
-
-    /*if (newData !== data){
-        return newData
-    }*/
-}
 
 const createBtn = document.querySelector('.notes__button__create')
 const form = document.querySelector('.notes__add__form')
 
-
-window.addEventListener('load', Note.onUpdateNoteList(DATA))
+window.addEventListener('load', Note.onUpdateNoteList(JSON.parse(localStorage.getItem('notes'))))
 
 createBtn.addEventListener('click', (e) => {
     form.classList.toggle('show')
@@ -33,22 +21,7 @@ createBtn.addEventListener('click', (e) => {
 form.addEventListener('submit',Form.formHandler)
 
 
-// Form.getNewDate()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-// console.log(Note.getNoteList())
 
 
 

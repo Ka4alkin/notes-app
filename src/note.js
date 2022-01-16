@@ -12,11 +12,13 @@ export class Note {
 
     static createNotes(data) {
 
+        this.clearNotes()
+
+
         const notesWrap = document.createElement('div')
         notesWrap.classList.add('notes__wrap')
 
         data.forEach((item, i) => {
-
 
             const note = document.createElement('div')
             note.classList.add('notes__item')
@@ -40,6 +42,21 @@ export class Note {
         })
 
         return notesWrap
+    }
+
+
+    static clearNotes(){
+
+        const notes = document.querySelector('.notes')
+        const items = document.querySelectorAll('.notes__item')
+        const notesWrap = document.querySelector('.notes__wrap')
+
+        if (notesWrap && items){
+            items.forEach((item, i) => {
+                notesWrap.removeChild(item)
+            })
+            notes.removeChild(notesWrap)
+        }
     }
 
 }

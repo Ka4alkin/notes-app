@@ -1,5 +1,5 @@
-import {addNote, updateDate} from "./app";
 import data from './data.json'
+import {Note} from "./note";
 
 export class Form {
 
@@ -11,11 +11,13 @@ export class Form {
         e.preventDefault()
         console.log('onInputSubmit')
         this.newDate =  Form.addNote(Form.getInputsValues(), data)
-        updateDate(data,this.newDate)
+        localStorage.setItem('notes',JSON.stringify(this.newDate))
+        Note.onUpdateNoteList(JSON.parse(localStorage.getItem('notes')))
+
     }
 
     static onInput() {
-
+        //for input valid
         this.inputs.forEach((input, i) => {
             input.addEventListener('input', this.onInputChange)
         })
@@ -44,9 +46,6 @@ export class Form {
         return processedData
     }
 
-    /*static getNewDate() {
-        console.log(this.newDate)
-    }*/
 
 }
 
