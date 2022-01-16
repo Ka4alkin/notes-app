@@ -22,6 +22,7 @@ export class Note {
 
             const note = document.createElement('div')
             note.classList.add('notes__item')
+            note.setAttribute('key',i)
 
             note.innerHTML += ` 
                 <div class="notes__item__name"> 
