@@ -39,9 +39,12 @@
         <form class="notes__edit__form" action="">
             <h3>Edit note</h3>
             <h5>Now you are editing note: <span style="font-size: 20px"></span></h5>
-            <input name="name" placeholder="Name" type="text">
-            <input name="category" placeholder="Category" type="text">
-            <input name="content" placeholder="Content" type="text">
+            <label for="name">name</label>
+            <input id="name" name="name" placeholder="Name" type="text">
+            <label for="category">category</label>
+            <input id="category" name="category" placeholder="Category" type="text">
+            <label for="content">content</label>
+            <input id="content" name="content" placeholder="Content" type="text">
             <button class="button" type="submit">Edit</button>
             <div class="button-close-edit active">Close</div>
         </form>

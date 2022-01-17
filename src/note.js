@@ -95,6 +95,10 @@ export class Note {
         Note.onUpdateNoteList(Service.getDate())
         Note.Error()
         SumTable.createItem()
+
+        //щоб уникнути коли нотатку видалив а сабміт на неї лишився
+        //потім переробити
+        Note.editForm.classList.remove('show')
     }
 
 
