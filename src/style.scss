@@ -3,16 +3,16 @@ body {
   font-family: cursive;
 }
 
-.container{
+.container {
   max-width: 900px;
   margin: auto;
 }
 
-.show{
+.show {
   display: block !important;
 }
 
-.button-close-edit{
+.button-close-edit {
   cursor: pointer;
   display: inline-block;
   border-radius: 5px;
@@ -20,22 +20,24 @@ body {
   box-shadow: 1px 1px 0px 0px #000000;
 }
 
-$gridTemp1 : repeat(5, 1fr) 150px;
+$gridTemp1: repeat(5, 1fr) 110px;
+$gridTemp2: repeat(3, 1fr);
 $shadow1: 0px 0px 4px 0px #000000;
 
-.button{
+.button {
   margin-left: 20px;
   background: #6f6f6f;
   color: #fff;
-  padding:5px 10px;
+  padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
 }
-.active{
+
+.active {
   background: #b35050 !important;
 }
 
-input{
+input {
   border-radius: 5px;
 }
 
@@ -54,6 +56,7 @@ input{
 
 .notes {
   margin: 40px 0px;
+
   &__header {
     -webkit-text-stroke: 1.5px #000000;
     display: grid;
@@ -64,7 +67,7 @@ input{
     border: 2px solid #535353;
     margin-bottom: 30px;
 
-    div{
+    div {
       display: flex;
       align-items: center;
       text-align: center;
@@ -87,9 +90,61 @@ input{
     }
   }
 
-  &__wrap {
-    //background: #9da4a4;
+  &__sum {
+    margin-top: 30px;
+    -webkit-text-stroke: 1.5px #000000;
+    display: grid;
+    background: #6f6f6f;
+    grid-template-columns:  $gridTemp2;
+    border-radius: 5px;
+    box-shadow: $shadow1;
+    border: 2px solid #535353;
+    margin-bottom: 20px;
+
+    div {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      color: #fefefe;
+      margin: 5px;
+      padding: 5px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    &__item{
+      display: grid;
+      background: #fff;
+      grid-template-columns:  $gridTemp1;
+      margin: 10px 0px;
+      border-radius: 5px;
+    }
+
   }
+
+  &__sum-wrap-item{
+
+    display: grid;
+    //background: #9da4a4;
+    grid-template-columns:  $gridTemp2;
+    margin: 10px 0px;
+    background: #ffffff;
+    border-radius: 5px;
+    box-shadow: $shadow1;
+    div {
+      color: #000;
+      //border: dashed 2px black;
+      margin: 5px;
+      padding: 5px;
+      border-right: 2px dashed #00000026;
+    }
+
+    div:last-child {
+      border-right: none;
+    }
+  }
+
+
 
   &__item {
     display: grid;
@@ -105,6 +160,11 @@ input{
       //border: dashed 2px black;
       margin: 5px;
       padding: 5px;
+      border-right: 2px dashed #00000026;
+    }
+
+    div:last-child {
+      border-right: none;
     }
 
 
@@ -143,15 +203,16 @@ input{
 
   }
 
-  &__button__wrap{
+  &__button__wrap {
     display: flex;
     justify-content: flex-end;
   }
-  &__button__create{
+
+  &__button__create {
 
   }
 
-  %form{
+  %form {
     display: none;
     //border: 2px solid;
     padding: 15px;
@@ -161,17 +222,18 @@ input{
     box-shadow: $shadow1;
   }
 
-  &__add__form{
-   display: none;
+  &__add__form {
+    display: none;
     @extend %form
 
   }
 
-  &__archive{
+  &__archive {
     display: none;
     @extend %form
   }
-  &__edit__form{
+
+  &__edit__form {
     display: none;
     @extend %form
 

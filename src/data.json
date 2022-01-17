@@ -1,17 +1,41 @@
 [
   {
-    "name": "Shop List",
-    "created": "April 20 2021",
-    "category": "task",
-    "content": "Tomatoes, bread Tomatoes, breadTomatoes, breadTomatoes, bread",
+    "name": "Shopping list",
+    "created": "April 20,2021",
+    "category": "Task",
+    "content": "Tomatoes, bread",
     "dates": "-",
     "archive": false
   },
   {
-    "name": "the Theory of a something",
-    "created": "January 10 2020",
-    "category": "question",
+    "name": "The Theory of evolution",
+    "created": "April 27,2021",
+    "category": "Random Though",
     "content": "The evolution of earth",
+    "dates": "-",
+    "archive": false
+  },
+  {
+    "name": "New Feature",
+    "created": "May 05, 2021",
+    "category": "task",
+    "content": "Implement new..",
+    "dates": "-",
+    "archive": false
+  },
+  {
+    "name": "William Gaddis",
+    "created": "May 07, 2021",
+    "category": "Idea",
+    "content": "Power doesn't co...",
+    "dates": "-",
+    "archive": false
+  },
+  {
+    "name": "Books",
+    "created": "May 15, 2021",
+    "category": "task",
+    "content": "The learn Startup",
     "dates": "-",
     "archive": false
   }
