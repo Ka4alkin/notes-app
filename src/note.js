@@ -104,8 +104,7 @@ export class Note {
         const spanNum = document.querySelector('.notes__edit__form h5 span')
         spanNum.innerHTML = Service.getDate()[itemKey].name
         Note.editForm.classList.add('show')
-
-
+         
         Note.activeEditKey = itemKey
 
     }
