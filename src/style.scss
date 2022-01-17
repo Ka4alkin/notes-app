@@ -12,8 +12,16 @@ body {
   display: block !important;
 }
 
+.button-close-edit{
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 5px;
+  padding: 2px 10px 5px 10px;
+  box-shadow: 1px 1px 0px 0px #000000;
+}
+
 $gridTemp1 : repeat(5, 1fr) 150px;
-$shadow1: 0px 0px 10px 1px #303030;
+$shadow1: 0px 0px 4px 0px #000000;
 
 .button{
   margin-left: 20px;
@@ -22,6 +30,9 @@ $shadow1: 0px 0px 10px 1px #303030;
   padding:5px 10px;
   border-radius: 5px;
   cursor: pointer;
+}
+.active{
+  background: #b35050 !important;
 }
 
 input{
@@ -44,6 +55,7 @@ input{
 .notes {
   margin: 40px 0px;
   &__header {
+    -webkit-text-stroke: 1.5px #000000;
     display: grid;
     background: #6f6f6f;
     grid-template-columns:  $gridTemp1;
@@ -139,14 +151,29 @@ input{
 
   }
 
+  %form{
+    display: none;
+    //border: 2px solid;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+    background: darkgray;
+    box-shadow: $shadow1;
+  }
+
   &__add__form{
    display: none;
+    @extend %form
+
   }
 
   &__archive{
     display: none;
+    @extend %form
   }
   &__edit__form{
     display: none;
+    @extend %form
+
   }
 }

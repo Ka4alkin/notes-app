@@ -13,8 +13,8 @@ export class Note {
     static notesWrap = document.querySelector('.notes__wrap')
     static editForm = document.querySelector('.notes__edit__form')
     static editFormInputs = document.querySelectorAll('.notes__edit__form input')
+    // static closeEditFormBtn = document.querySelector('.notes__edit__form button .active')
     static activeEditKey
-
 
 
     static onUpdateNoteList(data) {
@@ -26,6 +26,10 @@ export class Note {
     }
 
     static createNotes(data) {
+
+        if (document.querySelector('.error')) {
+            document.querySelector('.error').remove()
+        }
 
         this.clearNotes()
 
@@ -57,7 +61,6 @@ export class Note {
                 Note.notesWrap.append(note)
             } else {
                 Note.notesArchive.append(note)
-
             }
         })
     }
@@ -89,6 +92,7 @@ export class Note {
         data.splice(itemKey, 1)
         Service.updateDate(data)
         Note.onUpdateNoteList(Service.getDate())
+        Note.Error()
     }
 
 
@@ -97,13 +101,8 @@ export class Note {
         const itemKey = e.target.getAttribute('key')
         const spanNum = document.querySelector('.notes__edit__form h5 span')
         spanNum.innerHTML = Service.getDate()[itemKey].name
-        Note.editForm.classList.toggle('show')
+        Note.editForm.classList.add('show')
 
-        // let valid = itemKey - 1
-        //
-        //
-        // console.log('valid',valid)
-        // console.log('key',itemKey)
 
         Note.activeEditKey = itemKey
 
@@ -126,6 +125,23 @@ export class Note {
         Service.updateDate(data)
         Note.createNotes(data)
         Note.onBtn()
+    }
+
+    static Error() {
+        console.log(Service.getDate().length)
+        if (Service.getDate().length === 0) {
+            const error = document.createElement('div')
+            error.classList.add('error')
+            error.innerHTML = `
+                <h1 style="color: red; font-size: 75px">No notes yet! Please make new!</h1>
+                `
+            Note.notesWrap.append(error)
+        }
+    }
+
+    static valid() {
+        if (Service.getDate().length === 0)
+            return false
     }
 
 

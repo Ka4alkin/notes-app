@@ -45,7 +45,7 @@ export class Form {
         return newNote
     }
 
-    static editNote(inputs,key) {
+    static editNote(inputs, key) {
 
         const newNote = {}
         inputs.forEach((item, i) => {
@@ -69,18 +69,14 @@ export class Form {
 
     static editFormHandler = (key) => (e) => {
         e.preventDefault()
+        if (Service.getDate().length === 0) return
 
         const data = Service.getDate()
-        data[+Note.activeEditKey] = Form.editNote(Form.editFormInputs,+Note.activeEditKey)
+        data[+Note.activeEditKey] = Form.editNote(Form.editFormInputs, +Note.activeEditKey)
         Service.updateDate(data)
-        // console.log('----')
-        // console.log(data[key])
-        // console.log('----')
 
         Note.createNotes(data)
         Note.onBtn()
-        // console.log(e.target)
-
     }
 
 
