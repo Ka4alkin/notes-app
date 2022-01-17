@@ -1,6 +1,7 @@
 body {
   background: #b7b7b7;
-  font-family: cursive;
+  //font-family: cursive;
+  font-family: monospace;
 }
 
 .container {
@@ -20,7 +21,7 @@ body {
   box-shadow: 1px 1px 0px 0px #000000;
 }
 
-$gridTemp1: repeat(5, 1fr) 110px;
+$gridTemp1: repeat(5, 1fr) 130px;
 $gridTemp2: repeat(3, 1fr);
 $shadow1: 0px 0px 4px 0px #000000;
 
@@ -34,7 +35,7 @@ $shadow1: 0px 0px 4px 0px #000000;
 }
 
 .active {
-  background: #b35050 !important;
+  background: lightcoral !important;
 }
 
 input {
@@ -52,6 +53,7 @@ input {
   width: 32px;
   height: 32px;
   object-fit: contain;
+  margin-right: 5px;
 }
 
 .notes {
@@ -112,7 +114,8 @@ input {
       font-size: 24px;
       font-weight: bold;
     }
-    &__item{
+
+    &__item {
       display: grid;
       background: #fff;
       grid-template-columns:  $gridTemp1;
@@ -122,7 +125,7 @@ input {
 
   }
 
-  &__sum-wrap-item{
+  &__sum-wrap-item {
 
     display: grid;
     //background: #9da4a4;
@@ -131,6 +134,7 @@ input {
     background: #ffffff;
     border-radius: 5px;
     box-shadow: $shadow1;
+
     div {
       color: #000;
       //border: dashed 2px black;
@@ -143,7 +147,6 @@ input {
       border-right: none;
     }
   }
-
 
 
   &__item {
@@ -191,9 +194,17 @@ input {
       img {
         @extend %btnsImg;
         cursor: pointer;
+        transition: 0.2s;
+      }
+
+      img:hover {
+        filter: drop-shadow(1px 3px 2px #787878);
+        transition: 0.2s;
       }
 
       &__archive {
+
+
 
       }
 
@@ -230,6 +241,7 @@ input {
 
   &__archive {
     display: none;
+    background: lightcoral !important;
     @extend %form
   }
 

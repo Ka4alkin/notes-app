@@ -3,10 +3,12 @@ import data from './data.json'
 import {Note} from "./note";
 import {Service} from "./service";
 import {Form} from "./form";
+import {SumTable} from "./sumTable";
 
 Service.updateDate(data)
 
 export const DATA = Service.getDate()
+SumTable.createItem()
 
 
 const createBtn = document.querySelector('.notes__button__create')

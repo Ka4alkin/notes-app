@@ -4,6 +4,7 @@ import deleteImg from './assets/images/delete.png'
 import archiveImg from './assets/images/archive.png'
 import {Service} from "./service";
 import {Form} from "./form";
+import {SumTable} from "./sumTable";
 
 export class Note {
 
@@ -93,6 +94,7 @@ export class Note {
         Service.updateDate(data)
         Note.onUpdateNoteList(Service.getDate())
         Note.Error()
+        SumTable.createItem()
     }
 
 
@@ -125,6 +127,7 @@ export class Note {
         Service.updateDate(data)
         Note.createNotes(data)
         Note.onBtn()
+        SumTable.createItem()
     }
 
     static Error() {
@@ -143,7 +146,6 @@ export class Note {
         if (Service.getDate().length === 0)
             return false
     }
-
 
 }
 

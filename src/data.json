@@ -2,7 +2,7 @@
   {
     "name": "Shopping list",
     "created": "April 20,2021",
-    "category": "Task",
+    "category": "task",
     "content": "Tomatoes, bread",
     "dates": "-",
     "archive": false

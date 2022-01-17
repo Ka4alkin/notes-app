@@ -1,6 +1,7 @@
 import {Note} from "./note";
 import data from "./data.json";
 import {Service} from "./service";
+import {SumTable} from "./sumTable";
 
 export class Form {
 
@@ -16,6 +17,7 @@ export class Form {
         this.newDate = Form.addNote(Form.newNote(Form.inputs), Service.getDate())
         Service.updateDate(this.newDate)
         Note.onUpdateNoteList(Service.getDate())
+        SumTable.createItem()
 
     }
 
@@ -38,7 +40,7 @@ export class Form {
             const name = item.getAttribute('name')
             newNote[name] = item.value
         })
-        newNote['created'] = new Date().toLocaleDateString()
+        newNote['created'] = Service.getMonths() + ' ' + new Date().getDate() + ', ' + new Date().getFullYear()
         newNote['archive'] = false
         newNote['dates'] = '-'
 
