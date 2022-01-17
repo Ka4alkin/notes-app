@@ -101,10 +101,17 @@ export class Note {
     static onEdit(e) {
 
         const itemKey = e.target.getAttribute('key')
+
         const spanNum = document.querySelector('.notes__edit__form h5 span')
         spanNum.innerHTML = Service.getDate()[itemKey].name
         Note.editForm.classList.add('show')
-         
+
+        console.log(e.target)
+        Note.editFormInputs.forEach((item, i) => {
+            const name = item.getAttribute('name')
+            item.value = Service.getDate()[itemKey][name]
+        })
+
         Note.activeEditKey = itemKey
 
     }
